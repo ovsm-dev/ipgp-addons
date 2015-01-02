@@ -1,0 +1,4 @@
+SET(IPGP_GUI_WIDGET_SOURCES gutenbergrichterwidget.cpp)
+SET(IPGP_GUI_WIDGET_MOC_HEADERS gutenbergrichterwidget.h)
+SET(IPGP_GUI_WIDGET_UI gutenbergrichterwidget.ui)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGET)

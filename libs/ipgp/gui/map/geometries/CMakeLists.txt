@@ -1,0 +1,17 @@
+SET(IPGP_GUI_GEOMETRIES_SOURCES
+    circle.cpp
+    line.cpp
+    point.cpp
+    rectangle.cpp
+    star.cpp
+    triangle.cpp
+)
+SET(IPGP_GUI_GEOMETRIES_HEADERS
+    circle.h
+    line.h
+    point.h
+    rectangle.h
+    star.h
+    triangle.h
+)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_GEOMETRIES)

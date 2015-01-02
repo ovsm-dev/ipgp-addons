@@ -1,0 +1,19 @@
+Required packages for GUI modules.
+
+Debian install
+==============
+
+apt-get install libxml2-dev libboost-all-dev libssl-dev libncurses5\
+                libpython2.7 python-dbus-dev python-libxml2 python-numpy\
+                python-m2crypto libghc-opengl-dev libqt4-dev libqt4-opengl-dev\
+                libqtwebkit-dev libmysqlclient-dev mysql-server flex cmake\
+                cmake-qt-gui cmake-curses-gui build-essential libcdio-dev\
+
+                
+Ubuntu install 14.04
+====================
+xutils-dev libxml2-dev libboost-all-dev python-all-dev libssl-dev libncurses5-dev\
+           libhdf5-dev libqt4-dev libqt4-opengl-dev\
+           libqtwebkit-dev libmysqlclient-dev mysql-server flex cmake\
+           cmake-curses-gui build-essential python-sphinx
+           

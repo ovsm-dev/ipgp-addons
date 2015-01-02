@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seiscomp>
+	<module name="scaemv" category="IPGP GUI">
+		<description>Advanced Event Manager View</description>
+		<configuration>
+			<parameter name="loadEventDB" type="int" default="30">
+				<description>
+					Number of days of events to pre-load when application
+					is started.
+				</description>
+			</parameter>
+			<group name="recordstream">
+				<parameter name="timeout" type="int" default="30" unit="sec">
+					<description>
+						Defines the maximum period (in seconds) over which an
+						seedlink/arclink request is considered as being out of time if no
+						records have been received.
+					</description>
+				</parameter>
+				<parameter name="uri" type="string" default="slink://localhost:18000">
+					<description>
+						Defines the URI to the seeldink/arclink server(s). The
+						standard slink/combined systems are supported.
+					</description>
+				</parameter>
+			</group>
+			<group name="picker">
+				<parameter name="filters" type="list:string"
+					default='"BP 1 - 15 Hz 3rd order;BW(3,1,15)", "HP 1.5 3rd order;BW_HP(3,1.5)", "BP 0.7 - 2 Hz;BW(3,0.7,2)", "4 pole HP @2s;BW_HP(4,0.5)", "4 pole LP @2s;BW_LP(4,0.5)"'>
+					<description>
+						Defines a list of data stream filters.
+					</description>
+				</parameter>
+			</group>
+			<group name="map">
+				<parameter name="names" type="list:string">
+					<description>
+						Defines a list of tilemap's names.
+					</description>
+				</parameter>
+				<parameter name="paths" type="list:path">
+					<description>
+						Defines the paths binded with the maps tiles. Tiles
+						folders/files have to be sensitive to this formulation:
+						maps_directory/%zoom%/osm_%zoom%_%column%_%tile%.png. Several
+						tiles maps can be added regarding right association of paths and
+						names.
+					</description>
+				</parameter>
+				<parameter name="defaultLatitude" type="double">
+					<description>
+						Sets the default map latitude in decimal degrees.
+					</description>
+				</parameter>
+				<parameter name="defaultLongitude" type="double">
+					<description>
+						Sets the default map longitude in decimal degrees.
+					</description>
+				</parameter>
+			</group>
+			<group name="scheme">
+				<group name="precision">
+					<parameter name="depth" type="int" default="2">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for depth values.
+						</description>
+					</parameter>
+					<parameter name="distance" type="int" default="2">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for distance values.
+						</description>
+					</parameter>
+					<parameter name="location" type="int" default="2">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for location values.
+						</description>
+					</parameter>
+					<parameter name="rms" type="int" default="2">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for R.M.S. values.
+						</description>
+					</parameter>
+					<parameter name="azimuth" type="int" default="0">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for azimuth values.
+						</description>
+					</parameter>
+					<parameter name="pickTime" type="int" default="1">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for pickTime values.
+						</description>
+					</parameter>
+				</group>
+				<group name="unit">
+					<parameter name="distanceInKM" type="boolean" default="true">
+						<description>
+							Defines the unit in which distance are displayed.
+						</description>
+					</parameter>
+				</group>
+				<group name="fonts">
+					<parameter name="base" type="string" default="Arial">
+						<description>
+							Defines the base font family to use.
+						</description>
+					</parameter>
+					<parameter name="normal" type="double" default="10">
+						<description>
+							Defines the base font family size to use.
+						</description>
+					</parameter>
+				</group>
+				<parameter name="styleSheet" type="file">
+					<description>
+						Defines the stylesheet (CSS) to use for GUI
+						customization.
+					</description>
+				</parameter>
+			</group>
+			<group name="aemv">
+				<group name="global">
+					<parameter name="availableMagnitudes"
+						default="Md, Ms, mB, ML, mBc, MLv, MLh, Mwp, Mw(mB), Mw(mBc), Mjma"
+						type="list:string">
+						<description>
+							Magnitudes types available in graphics widgets.
+						</description>
+					</parameter>
+				</group>
+				<parameter name="locators" type="list:string">
+					<description>
+						Defines a list of locators that will be available as
+						filters.
+					</description>
+				</parameter>
+				<group name="locator">
+					<struct type="list:string" link="bev.locator.@LOCATOR.profiles">
+						<description>
+							Defines a list of profiles belonging to a locator.
+						</description>
+					</struct>
+				</group>
+				<group name="eventList">
+					<parameter name="useSeparateThread" type="boolean"
+						default="true">
+						<description>
+							Sets whether or not objects (events) should be
+							fetched
+							by using another thread than the GUI's one.
+						</description><!--The interface will be responsive but this will input 
+							some delay on the fetching operation -->
+					</parameter>
+					<parameter name="useCacheEngine" type="boolean" default="true">
+						<description>
+							Sets whether or not objects (events) should be
+							fetched and stored inside a cache.
+						</description><!--Using a cache engine will reduce the time required 
+							to fetch objects but int the mean time, the user should clear/Refresh said 
+							cache periodically to ensure that objects are up to date. -->
+					</parameter>
+					<parameter name="useNormalizedEpicenterSize" type="boolean" default="false">
+						<description>
+							Defines if epicenters should be painted by using the normalized
+							size obtained by ratio of magnitude. If set to false, the size
+							will be calculated by using a smaller ratio (1.5).
+						</description>
+					</parameter>
+					<parameter name="fetchUnassociatedOrigins" type="boolean"
+						default="false">
+						<description></description>
+					</parameter>
+					<parameter name="fetchPreferredOriginComment" type="boolean"
+						default="false">
+						<description></description>
+					</parameter>
+					<parameter name="fetchSiblingOriginComment" type="boolean"
+						default="false">
+						<description></description>
+					</parameter>
+					<parameter name="fetchUnassociatedOriginComment" type="boolean"
+						default="false">
+						<description></description>
+					</parameter>
+					<parameter name="decorateItems" type="boolean" default="true">
+						<description></description>
+					</parameter>
+					<parameter name="allowAdvancedOptions" type="boolean"
+						default="true">
+						<description></description>
+					</parameter>
+				</group>
+			</group>
+		</configuration>
+		<command-line>
+			<group name="Generic">
+				<optionReference>generic#help</optionReference>
+				<optionReference>generic#version</optionReference>
+				<optionReference>generic#config-file</optionReference>
+				<optionReference>generic#plugins</optionReference>
+				<optionReference>generic#daemon</optionReference>
+				<optionReference>generic#auto-shutdown</optionReference>
+				<optionReference>generic#shutdown-master-module</optionReference>
+				<optionReference>generic#shutdown-master-username</optionReference>
+			</group>
+			<group name="Verbosity">
+				<optionReference>verbosity#verbosity</optionReference>
+				<optionReference>verbosity#v</optionReference>
+				<optionReference>verbosity#quiet</optionReference>
+				<optionReference>verbosity#component</optionReference>
+				<optionReference>verbosity#syslog</optionReference>
+				<optionReference>verbosity#lockfile</optionReference>
+				<optionReference>verbosity#console</optionReference>
+				<optionReference>verbosity#debug</optionReference>
+				<optionReference>verbosity#log-file</optionReference>
+			</group>
+			<group name="Messaging">
+				<optionReference>messaging#user</optionReference>
+				<optionReference>messaging#host</optionReference>
+				<optionReference>messaging#timeout</optionReference>
+				<optionReference>messaging#primary-group</optionReference>
+				<optionReference>messaging#subscribe-group</optionReference>
+				<optionReference>messaging#encoding</optionReference>
+				<optionReference>messaging#start-stop-msg</optionReference>
+			</group>
+			<group name="Database">
+				<optionReference>database#db-driver-list</optionReference>
+				<optionReference>database#database</optionReference>
+				<optionReference>database#config-module</optionReference>
+				<optionReference>database#inventory-db</optionReference>
+				<option flag="" long-flag="db-disable" argument=""
+					publicID="database#db-disable">
+					<description>Do not use the database at all</description>
+				</option>
+			</group>
+			<group name="User interface">
+				<option flag="" long-flag="fullscreen" argument="arg"
+					publicID="user-interface#fullscreen">
+					<description>Starts the application in fullscreen mode
+					</description>
+				</option>
+				<option flag="" long-flag="stylesheet" argument="arg"
+					publicID="user-interface#stylesheet">
+					<description>Customize the user interface by using style from
+						the
+						given stylesheet
+					</description>
+				</option>
+			</group>
+		</command-line>
+	</module>
+</seiscomp>

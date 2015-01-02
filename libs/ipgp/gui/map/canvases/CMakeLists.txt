@@ -1,0 +1,4 @@
+SET(IPGP_GUI_CANVASES_SOURCES backgroundcanvas.cpp foregroundcanvas.cpp)
+SET(IPGP_GUI_CANVASES_HEADERS backgroundcanvas.h)
+SET(IPGP_GUI_CANVASES_MOC_HEADERS foregroundcanvas.h)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_CANVASES)

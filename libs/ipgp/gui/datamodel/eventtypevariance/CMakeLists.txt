@@ -1,0 +1,4 @@
+SET(IPGP_GUI_WIDGET_SOURCES eventtypevariancewidget.cpp)
+SET(IPGP_GUI_WIDGET_MOC_HEADERS eventtypevariancewidget.h)
+SET(IPGP_GUI_WIDGET_UI eventtypevariancewidget.ui)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGET)

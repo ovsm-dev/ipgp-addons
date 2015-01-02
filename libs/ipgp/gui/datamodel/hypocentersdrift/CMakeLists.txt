@@ -1,0 +1,4 @@
+SET(IPGP_GUI_WIDGET_SOURCES hypocentersdriftwidget.cpp)
+SET(IPGP_GUI_WIDGET_MOC_HEADERS hypocentersdriftwidget.h)
+SET(IPGP_GUI_WIDGET_UI hypocentersdriftwidget.ui)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGET)

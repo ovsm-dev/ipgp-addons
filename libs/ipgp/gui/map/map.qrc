@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/szin.png</file>
+        <file>images/szout.png</file>
+        <file>images/clear.png</file>
+        <file>images/decorator.png</file>
+        <file>images/layers.png</file>
+        <file>images/redpin.png</file>
+        <file>images/Info.png</file>
+    </qresource>
+</RCC>

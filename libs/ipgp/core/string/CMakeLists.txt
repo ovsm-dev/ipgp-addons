@@ -1,0 +1,9 @@
+SET(IPGP_CORE_SOURCES
+	string.cpp
+)
+
+SET(IPGP_CORE_HEADERS
+	string.h
+)
+
+SC_SETUP_LIB_SUBDIR(IPGP_CORE)

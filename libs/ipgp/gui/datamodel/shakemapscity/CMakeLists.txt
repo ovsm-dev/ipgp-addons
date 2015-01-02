@@ -1,0 +1,5 @@
+SET(IPGP_GUI_SHAKE_SOURCES shakemapscitywidget.cpp)
+SET(IPGP_GUI_SHAKE_MOC_HEADERS shakemapscitywidget.h)
+SET(IPGP_GUI_SHAKE_UI shakemapscitywidget.ui)
+
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_SHAKE)

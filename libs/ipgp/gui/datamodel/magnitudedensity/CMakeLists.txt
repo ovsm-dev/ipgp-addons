@@ -1,0 +1,4 @@
+SET(IPGP_GUI_WIDGET_SOURCES magnitudedensity.cpp)
+SET(IPGP_GUI_WIDGET_MOC_HEADERS magnitudedensity.h)
+SET(IPGP_GUI_WIDGET_UI magnitudedensity.ui)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGET)

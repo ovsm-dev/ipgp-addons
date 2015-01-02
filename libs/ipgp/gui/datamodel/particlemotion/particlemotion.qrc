@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/apply.png</file>
+        <file>images/document-save.png</file>
+        <file>images/filled-flag.png</file>
+        <file>images/filled-flag2.png</file>
+        <file>images/two-ways-left-right.png</file>
+        <file>images/two-ways-up-down.png</file>
+        <file>images/view-refresh.png</file>
+    </qresource>
+</RCC>

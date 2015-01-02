@@ -1,0 +1,16 @@
+SET(CMAKE_BUILD_TYPE "Release")
+
+SET(PACKAGE_NAME BULLETINEXPORTERVIEW)
+SET(APP_NAME scbev)
+SET(${PACKAGE_NAME}_SOURCES bulletinexporterview.cpp main.cpp)
+SET(${PACKAGE_NAME}_HEADERS)
+SET(${PACKAGE_NAME}_MOC_HEADERS	bulletinexporterview.h)
+SET(${PACKAGE_NAME}_UI exportdialog.ui filterbox.ui bulletinexporterview.ui)
+SET(${PACKAGE_NAME}_RESOURCES bulletinexporterview.qrc)
+
+SC_ADD_GUI_EXECUTABLE(${PACKAGE_NAME} ${APP_NAME})
+SC_LINK_LIBRARIES_INTERNAL(${APP_NAME} ipgp_qt4)
+
+FILE(GLOB descs "${CMAKE_CURRENT_SOURCE_DIR}/descriptions/*.xml")
+INSTALL(FILES ${descs} DESTINATION ${SC3_PACKAGE_APP_DESC_DIR})
+

@@ -1,0 +1,3 @@
+SET(IPGP_GUI_WIDGETS_SOURCES motionmap.cpp originwidget.cpp)
+SET(IPGP_GUI_WIDGETS_MOC_HEADERS motionmap.h originwidget.h)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGETS)

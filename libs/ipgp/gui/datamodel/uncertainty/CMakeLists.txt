@@ -1,0 +1,5 @@
+SET(IPGP_GUI_WIDGET_SOURCES uncertaintywidget.cpp)
+SET(IPGP_GUI_WIDGET_MOC_HEADERS uncertaintywidget.h)
+SET(IPGP_GUI_WIDGET_UI uncertaintywidget.ui)
+
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGET)

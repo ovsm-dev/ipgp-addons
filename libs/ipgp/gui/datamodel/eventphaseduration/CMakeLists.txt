@@ -1,0 +1,4 @@
+SET(IPGP_GUI_WIDGET_SOURCES eventphaseduration.cpp)
+SET(IPGP_GUI_WIDGET_MOC_HEADERS eventphaseduration.h)
+SET(IPGP_GUI_WIDGET_UI eventphaseduration.ui)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGET)

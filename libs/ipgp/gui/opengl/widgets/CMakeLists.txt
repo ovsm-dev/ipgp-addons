@@ -1,0 +1,4 @@
+SET(IPGP_GUI_WIDGETS_SOURCES particlemotionglwidget.cpp topographymap.cpp)
+SET(IPGP_GUI_WIDGETS_MOC_HEADERS particlemotionglwidget.h topographymap.h)
+SET(IPGP_GUI_WIDGETS_UI topographymap.ui topographymapdialog.ui)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGETS)

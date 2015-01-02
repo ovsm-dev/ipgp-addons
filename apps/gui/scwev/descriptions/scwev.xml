@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seiscomp>
+	<module name="scwev" category="IPGP GUI">
+		<description>SeisComp World Earthquake View</description>
+		<configuration>
+			<parameter name="loadEventDB" type="int" default="30">
+				<description>
+					Number of days of events to pre-load when application
+					is started.
+				</description>
+			</parameter>
+			<group name="map">
+				<parameter name="names" type="list:string">
+					<description>
+						Defines a list of tilemap's names.
+					</description>
+				</parameter>
+				<parameter name="paths" type="list:path">
+					<description>
+						Defines the paths binded with the maps tiles. Tiles
+						folders/files have to be sensitive to this formulation:
+						maps_directory/%zoom%/osm_%zoom%_%column%_%tile%.png. Several
+						tiles maps can be added regarding right association of paths and
+						names.
+					</description>
+				</parameter>
+				<parameter name="defaultLatitude" type="double">
+					<description>
+						Sets the default map latitude in decimal degrees.
+					</description>
+				</parameter>
+				<parameter name="defaultLongitude" type="double">
+					<description>
+						Sets the default map longitude in decimal degrees.
+					</description>
+				</parameter>
+			</group>
+			<group name="scheme">
+				<group name="precision">
+					<parameter name="depth" type="int" default="2">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for depth values.
+						</description>
+					</parameter>
+					<parameter name="distance" type="int" default="2">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for distance values.
+						</description>
+					</parameter>
+					<parameter name="location" type="int" default="2">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for location values.
+						</description>
+					</parameter>
+					<parameter name="rms" type="int" default="2">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for R.M.S. values.
+						</description>
+					</parameter>
+					<parameter name="azimuth" type="int" default="0">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for azimuth values.
+						</description>
+					</parameter>
+					<parameter name="pickTime" type="int" default="1">
+						<description>
+							Defines the number of decimals that should be
+							visible
+							for pickTime values.
+						</description>
+					</parameter>
+				</group>
+				<group name="unit">
+					<parameter name="distanceinKM" type="boolean" default="true">
+						<description>
+							Defines the unit in which distance are displayed.
+						</description>
+					</parameter>
+				</group>
+				<group name="fonts">
+					<parameter name="base" type="string" default="Arial">
+						<description>
+							Defines the base font family to use.
+						</description>
+					</parameter>
+					<parameter name="normal" type="double" default="10">
+						<description>
+							Defines the base font family size to use.
+						</description>
+					</parameter>
+				</group>
+				<parameter name="styleSheet" type="file">
+					<description>
+						Defines the stylesheet (CSS) to use for GUI
+						customization.
+					</description>
+				</parameter>
+			</group>
+			<group name="wev">
+				<parameter name="inventoryVisible" type="boolean" default="false">
+					<description>
+						Defines if the event's inventory should be visible on the map.
+					</description>
+				</parameter>
+				<parameter name="useOwnWebViewer" type="boolean" default="true">
+					<description>
+						Defines if DYFI, Pager or Shakemap links should be opened
+						within the application or by using the user's web browser.
+					</description>
+				</parameter>
+				<group name="refresh">
+					<parameter name="enable" type="boolean" default="true">
+						<description>
+							Defines if the user wants the widget to refresh its
+							data periodically.
+						</description>
+					</parameter>
+					<parameter name="delay" type="int" default="60" unit="sec">
+						<description>
+							Defines the refresh delay in seconds.
+						</description>
+					</parameter>
+				</group>
+				<group name="import">
+					<parameter name="earthModelID" type="string" default="USGS Seismic">
+						<description>Sets the ModelID used to locate earthquakes.
+						</description>
+					</parameter>
+					<parameter name="methodID" type="string" default="USGS Locator">
+						<description>Sets the MethodID used to locate earthquakes.
+						</description>
+					</parameter>
+					<parameter name="author" type="string" default="USGS">
+						<description>Sets the Author of the earthquakes localization.
+						</description>
+					</parameter>
+					<parameter name="agency" type="string" default="USGS">
+						<description>Sets the Agency of the earthquakes localization.
+						</description>
+					</parameter>
+				</group>
+				<group name="rss">
+					<group name="feed">
+						<parameter name="USGS" type="string"
+							default="http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/">
+							<description>
+								Defines the URL for the USGS's RSS ATOM feed.
+								NOTE:
+								only the root of the ATOM feed is to be specified,
+								the
+								application will generate the end of the URL...
+							</description>
+						</parameter>
+						<parameter name="custom" type="string" default="">
+							<description>
+								Defines the URL for a custom ATOM feed.
+							</description>
+						</parameter>
+					</group>
+					<parameter name="feedPeriod" type="string" default="Past 7 Days">
+						<description>
+							Defines the period of events to request data from.
+							The user may
+							choose between "Past Hour", "Past Day", "Past 7
+							Days","Past 30 Days"
+						</description>
+					</parameter>
+					<parameter name="feedType" type="string" default="USGS">
+						<description>
+							Defines the type of feed to request data from. The
+							user may
+							choose between
+							"Significant","M4.5+","M2.5+","M1.0+","All".
+						</description>
+					</parameter>
+				</group>
+				<parameter name="locators" type="list:string">
+					<description>
+						Defines a list of locators that will be available as
+						filters.
+					</description>
+				</parameter>
+				<group name="locator">
+					<struct type="list:string" link="bev.locator.@LOCATOR.profiles">
+						<description>
+							Defines a list of profiles belonging to a locator.
+						</description>
+					</struct>
+				</group>
+				<group name="eventList">
+					<parameter name="useSeparateThread" type="boolean"
+						default="true">
+						<description>
+							Sets whether or not objects (events) should be
+							fetched
+							by using another thread than the GUI's one.
+						</description><!--The interface will be responsive but this will input 
+							some delay on the fetching operation -->
+					</parameter>
+					<parameter name="useCacheEngine" type="boolean" default="true">
+						<description>
+							Sets whether or not objects (events) should be
+							fetched
+							and stored inside a cache.
+						</description><!--Using a cache engine will reduce the time required 
+							to fetch objects but int the mean time, the user should clear/Refresh said 
+							cache periodically to ensure that objects are up to date. -->
+					</parameter>
+					<parameter name="showNotExistingOrigins" type="boolean"
+						default="false">
+						<description>
+							Sets whether or not origins flagged with "NOT
+							EXISTING" have type to be seen in the list.
+						</description>
+					</parameter>
+					<parameter name="showNotLocatableOrigin" type="boolean"
+						default="false">
+						<description>
+							Sets whether or not origins flagged with "NOT
+							LOCATABLE" type have to be seen in the list.
+						</description>
+					</parameter>
+					<parameter name="showOriginsWithNoType" type="boolean"
+						default="false">
+						<description>
+							Sets whether or not origins without a type have to be
+							seen in the list.
+						</description>
+					</parameter>
+					<parameter name="showOutOfNetworkInterestsOrigins" type="boolean"
+						default="true">
+						<description>
+							Sets whether or not origins flagged with "OUTSIDE OF
+							NETWORK INTEREST" type have to be seen in the list.
+						</description>
+					</parameter>
+				</group>
+			</group>
+		</configuration>
+		<command-line>
+			<group name="Generic">
+				<optionReference>generic#help</optionReference>
+				<optionReference>generic#version</optionReference>
+				<optionReference>generic#config-file</optionReference>
+				<optionReference>generic#plugins</optionReference>
+				<optionReference>generic#daemon</optionReference>
+				<optionReference>generic#auto-shutdown</optionReference>
+				<optionReference>generic#shutdown-master-module</optionReference>
+				<optionReference>generic#shutdown-master-username</optionReference>
+			</group>
+			<group name="Verbosity">
+				<optionReference>verbosity#verbosity</optionReference>
+				<optionReference>verbosity#v</optionReference>
+				<optionReference>verbosity#quiet</optionReference>
+				<optionReference>verbosity#component</optionReference>
+				<optionReference>verbosity#syslog</optionReference>
+				<optionReference>verbosity#lockfile</optionReference>
+				<optionReference>verbosity#console</optionReference>
+				<optionReference>verbosity#debug</optionReference>
+				<optionReference>verbosity#log-file</optionReference>
+			</group>
+			<group name="Messaging">
+				<optionReference>messaging#user</optionReference>
+				<optionReference>messaging#host</optionReference>
+				<optionReference>messaging#timeout</optionReference>
+				<optionReference>messaging#primary-group</optionReference>
+				<optionReference>messaging#subscribe-group</optionReference>
+				<optionReference>messaging#encoding</optionReference>
+				<optionReference>messaging#start-stop-msg</optionReference>
+			</group>
+			<group name="Database">
+				<optionReference>database#db-driver-list</optionReference>
+				<optionReference>database#database</optionReference>
+				<optionReference>database#config-module</optionReference>
+				<optionReference>database#inventory-db</optionReference>
+				<option flag="" long-flag="db-disable" argument=""
+					publicID="database#db-disable">
+					<description>Do not use the database at all</description>
+				</option>
+			</group>
+			<group name="User interface">
+				<option flag="" long-flag="fullscreen" argument="arg"
+					publicID="user-interface#fullscreen">
+					<description>
+						Starts the application in fullscreen mode
+					</description>
+				</option>
+				<option flag="" long-flag="stylesheet" argument="arg"
+					publicID="user-interface#stylesheet">
+					<description>
+						Customize the user interface by using style from
+						the
+						given stylesheet.
+					</description>
+				</option>
+			</group>
+		</command-line>
+	</module>
+</seiscomp>

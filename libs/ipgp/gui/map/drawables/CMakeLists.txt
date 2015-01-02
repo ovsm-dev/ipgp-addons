@@ -1,0 +1,21 @@
+SET(DRAWABLES_SOURCES
+    arrival.cpp
+    city.cpp
+    crosssection.cpp
+    epicenter.cpp
+    indicator.cpp
+    pin.cpp
+    plate.cpp
+    station.cpp
+)
+SET(DRAWABLES_HEADERS
+    arrival.h
+    city.h
+    crosssection.h
+    epicenter.h
+    indicator.h
+    pin.h
+    plate.h
+    station.h
+)
+SC_SETUP_GUI_LIB_SUBDIR(DRAWABLES)

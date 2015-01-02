@@ -1,0 +1,5 @@
+SUBDIRS(
+		scaemv
+		scbev
+		scwev
+)

@@ -1,0 +1,4 @@
+SET(IPGP_GUI_WIDGET_SOURCES magnitudevariancewidget.cpp)
+SET(IPGP_GUI_WIDGET_MOC_HEADERS magnitudevariancewidget.h)
+SET(IPGP_GUI_WIDGET_UI magnitudevariancewidget.ui)
+SC_SETUP_GUI_LIB_SUBDIR(IPGP_GUI_WIDGET)
