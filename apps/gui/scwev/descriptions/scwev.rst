@@ -203,9 +203,9 @@ to specify more than one tile design.
                "OpenStreetMap - Terrain"
 
    # Tile design paths (ordered)
-   map.paths = ${HOME}/.ipgp/maps/esri/Ocean_Basemap/,\
-               ${HOME}/.ipgp/maps/gmap-hybrid/,\
-               ${HOME}/.ipgp/maps/opencyclemap/
+   map.paths = @DATADIR@/maps/esri/Ocean_Basemap/,\
+               @DATADIR@/maps/gmap-hybrid/,\
+               @DATADIR@/maps/opencyclemap/
 
 Tiles
 -----
