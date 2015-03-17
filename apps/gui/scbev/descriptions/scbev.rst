@@ -373,7 +373,7 @@ be used in order to convert data from SC3ML format into QuakeML format.
 .. code-block:: sh
 
    # QuakeML schema
-   bev.export.quakeml.schemaFile = ${HOME}/.ipgp/scbev/sc3ml_0.7__quakeml_1.2.xsl
+   bev.export.quakeml.schemaFile = @DATADIR@/scbev/sc3ml_0.7__quakeml_1.2.xsl
 
 Also, this conversion is executed by using a third party program called **xalan**.
 This program is available through the linux repositories.
@@ -466,9 +466,9 @@ to specify more than one tile design.
                "OpenStreetMap - Terrain"
 
    # Tile design paths (ordered)
-   map.paths = ${HOME}/.ipgp/maps/esri/Ocean_Basemap/,\
-               ${HOME}/.ipgp/maps/gmap-hybrid/,\
-               ${HOME}/.ipgp/maps/opencyclemap/
+   map.paths = @DATADIR@/maps/esri/Ocean_Basemap/,\
+               @DATADIR@/maps/gmap-hybrid/,\
+               @DATADIR@/maps/opencyclemap/
 
 Tiles
 -----
