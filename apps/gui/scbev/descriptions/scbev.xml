@@ -99,7 +99,7 @@
 							origins into QuakeML origins.
 						</description>
 						<parameter name="schemaFile" type="string"
-							default="${HOME}/.ipgp/scwuv/sc3ml_0.7__quakeml_1.2.xsl">
+							default="@DATADIR@/scbev/sc3ml_0.7__quakeml_1.2.xsl">
 							<description>Defines the filepath of the QuakeML schema
 								reference.
 							</description>
