@@ -178,7 +178,7 @@ customized stream filters.
 .. code-block:: sh
 
    # Seedlink/Arclink URI service
-   recordstream.uri = combined://seedserver:18000;arcserver:18001??rtMax=86400
+   recordstream.uri = combined://localhost:18000;localhost:18001??rtMax=86400
 
    # Stream filters
    picker.filters = "BP 1 - 15 Hz 3rd order;BW(3,1,15)",\
@@ -614,9 +614,9 @@ to specify more than one tile design.
                "OpenStreetMap - Terrain"
 
    # Tile design paths (ordered)
-   map.paths = ${HOME}/.ipgp/maps/esri/Ocean_Basemap/,\
-               ${HOME}/.ipgp/maps/gmap-hybrid/,\
-               ${HOME}/.ipgp/maps/opencyclemap/
+   map.paths = @DATADIR@/maps/esri/Ocean_Basemap/,\
+               @DATADIR@/maps/gmap-hybrid/,\
+               @DATADIR@/maps/opencyclemap/
 
 Tiles
 -----
