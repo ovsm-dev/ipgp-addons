@@ -371,7 +371,7 @@ est utilisé lors de la conversion des données initialement au format SC3ML.
 .. code-block:: sh
 
    # Schéma QuakeML
-   bev.export.quakeml.schemaFile = ${HOME}/.ipgp/scbev/sc3ml_0.7__quakeml_1.2.xsl
+   bev.export.quakeml.schemaFile = @DATADIR@/scbev/sc3ml_0.7__quakeml_1.2.xsl
 
 
 Aussi, cette conversion est éffectuée à l'aide de l'application **xalan**
@@ -466,9 +466,9 @@ les cartes.
                "OpenStreetMap - Terrain"
 
    # Chemins des jeux de carte (dans l'ordre)
-   map.paths = ${HOME}/.ipgp/maps/esri/Ocean_Basemap/,\
-               ${HOME}/.ipgp/maps/gmap-hybrid/,\
-               ${HOME}/.ipgp/maps/opencyclemap/
+   map.paths = @DATADIR@/maps/esri/Ocean_Basemap/,\
+               @DATADIR@/maps/gmap-hybrid/,\
+               @DATADIR@/maps/opencyclemap/
 
 Carreaux
 --------
