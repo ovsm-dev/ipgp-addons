@@ -168,7 +168,7 @@ des filtres personnalisés.
 .. code-block:: sh
 
    # URI du service habritant les données (seedlink, arclink)
-   recordstream.uri = combined://seedsrv:18000;arcsrv:18001??rtMax=86400
+   recordstream.uri = combined://localhost:18000;localhost:18001??rtMax=86400
 
    # Filtres de flux
    picker.filters = "BP 1 - 15 Hz 3rd order;BW(3,1,15)",\
@@ -553,9 +553,9 @@ les cartes.
                "OpenStreetMap - Terrain"
 
    # Chemins des jeux de carte (dans l'ordre)
-   map.paths = ${HOME}/.ipgp/maps/esri/Ocean_Basemap/,\
-               ${HOME}/.ipgp/maps/gmap-hybrid/,\
-               ${HOME}/.ipgp/maps/opencyclemap/
+   map.paths = @DATADIR@/maps/esri/Ocean_Basemap/,\
+               @DATADIR@/maps/gmap-hybrid/,\
+               @DATADIR@/maps/opencyclemap/
 
 Carreaux
 --------
