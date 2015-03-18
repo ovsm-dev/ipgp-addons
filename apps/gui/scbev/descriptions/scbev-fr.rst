@@ -481,13 +481,14 @@ possible de spécifier la manière dont ceux-ci sont archivés.
    # Pattern d'accès aux tiles
    # La pattern par défaut d'OpenStreetMap est "%1/%2/%3", ici on utilise
    # moins de sous répertoires.
+   # map.tilePattern = "%1/osm_%1_%2_%3"
    # - %1 = niveau de zoom (0-*)
    # - %2 = colone (0- 2^zoom-1)
    # - %3 = ligne (0- 2^zoom-1 en projection Mercatique)
    # Chaque paramêtre peut être utilisé plus d'une fois.
    # @note Il n'est pas nécessaire de préciser l'extension des carreaux,
    #       l'algorithm a pour priorité les PNG, puis les JPG.
-   map.tilePattern = "%1/osm_%1_%2_%3"
+   map.tilePattern = "%1/%2/%3"
 
 Plus d'informations sur l'organisation de carreaux 
 `OpenStreetMap slippy map <http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames>`_
