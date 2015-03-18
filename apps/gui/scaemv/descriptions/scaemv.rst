@@ -628,13 +628,14 @@ should specify the way they are stored.
 
    # OpenStreetMap's default tile pattern is "%1/%2/%3", the tile
    # engine is configured to use less sub-folders...
+   # map.tilePattern = "%1/osm_%1_%2_%3"
    # - %1 = zoom level (0-*)
    # - %2 = column (0- 2^zoom-1)
    # - %3 = line (0- 2^zoom-1 in Mercator projection)
    # Each parameter can be used more than once.
    # @note It is not mandatory to specify the extension of the file, the
    #       algorithm will try and fetch PNG and JPG files
-   map.tilePattern = "%1/osm_%1_%2_%3"
+   map.tilePattern = "%1/%2/%3"
 
 More information about tiles 
 `OpenStreetMap slippy map <http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames>`_
