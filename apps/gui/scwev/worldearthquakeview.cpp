@@ -152,8 +152,8 @@ void WorldEarthquakeView::addOrigin() {
 	origin->setMethodID(_defaultMethodID);
 	origin->setEvaluationMode(EvaluationMode(MANUAL));
 	origin->setTime(ot);
-	origin->setLatitude(RealQuantity(event.position().x(), None, None, None, None));
-	origin->setLongitude(RealQuantity(event.position().y(), None, None, None, None));
+	origin->setLatitude(RealQuantity(event.position().y(), None, None, None, None));
+	origin->setLongitude(RealQuantity(event.position().x(), None, None, None, None));
 	origin->setDepth(RealQuantity(fabs(event.elevation() / 1000), None, None, None, None));
 
 	ep->add(origin.get());

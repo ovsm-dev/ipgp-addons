@@ -88,7 +88,7 @@ class SC_IPGP_GUI_API QuakeEvent {
 		 * @return The value of the seeked expression or an empty string.
 		 */
 		QString findTag(const QString&, const QString&, const QString&) const;
-
+		QString findInfo(const QString&, const QString&, const QString&) const;
 	private:
 		// ------------------------------------------------------------------
 		//  Members

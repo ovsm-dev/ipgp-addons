@@ -25,8 +25,6 @@
 #include <QPoint>
 #include <QRegExp>
 
-
-
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 QuakeEvent::QuakeEvent() {
 	qRegisterMetaType<QuakeEvent>();
@@ -71,10 +69,14 @@ QString QuakeEvent::summary() const {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 QDateTime QuakeEvent::when() const {
 
+        // Format for date is "2011-10-02T11:43:00Z"
 	QString updated = _data.value("updated");
-	// Format for date is "2011-10-02T11:43:00Z"
+	QDateTime upd = QDateTime::fromString(updated, Qt::ISODate);
 
-	return QDateTime::fromString(updated, Qt::ISODate);
+	// Format for date is "2011-10-02 11:43:00 UTC"
+        QString origintime = findInfo(html(), "dd", "UTC");
+	
+	return QDateTime::fromString(origintime, Qt::ISODate);
 }
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -141,7 +143,7 @@ qreal QuakeEvent::elevation() const {
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 QString QuakeEvent::html() const {
-	return _data.value("summary");
+return _data.value("summary");
 }
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -249,9 +251,26 @@ QString QuakeEvent::findTag(const QString& src, const QString& tag,
 		if ( semi1.contains(exp) )
 			url = semi1;
 	}
-
+	
 	return url;
 }
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+QString QuakeEvent::findInfo(const QString& src, const QString& tag,
+                            const QString& exp) const {
+	QString info = "";
+	
+	QRegExp expression(QString("%1>(.*)%2</%1").arg(tag).arg(exp), Qt::CaseInsensitive);
+	expression.setMinimal(true);
+	
+	int iPosition = expression.indexIn(src);
+	if (iPosition > -1) {
+	  info = expression.cap(1);
+	}
+	
+	return info;
+}
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
