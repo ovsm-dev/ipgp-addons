@@ -32,7 +32,12 @@ namespace Map {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Tile::Tile(const int& x, const int& y, const int& z, const QString& path,
            const QString& pattern) :
-		_x(x), _y(y), _z(z), _path(path), _pattern(pattern) {
+		_x(x), _y(y), _z(z), _pattern(pattern) {
+
+	if ( path.right(1) != "/" )
+		_path = path + "/";
+	else
+		_path = path;
 
 	if ( z > MAX_ZOOM ) {
 		_z = MAX_ZOOM;
