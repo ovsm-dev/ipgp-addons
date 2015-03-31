@@ -132,7 +132,7 @@
 			<group name="aemv">
 				<group name="global">
 					<parameter name="availableMagnitudes"
-						default="Md, Ms, mB, ML, mBc, MLv, MLh, Mwp, Mw(mB), Mw(mBc), Mjma"
+						default="Md, Ms, mB, ML, mBc, MLv, MLh, Mwp, Mw(mB), Mw(mBc), Mjma, M"
 						type="list:string">
 						<description>
 							Magnitudes types available in graphics widgets.
