@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seiscomp>
+	<module name="wo2sc3" category="IPGP WebObs">
+		<description>WebObs To SeisComP3</description>
+		<configuration>
+			<group name="wo2sc3">
+				<group name="socket">
+					<parameter name="port" type="int" default="2048">
+						<description>
+							Port number on which the listening socket shall be
+							created. This port should be available
+							and usually above 1024.
+						</description>
+					</parameter>
+					<parameter name="authorizedHosts" type="list:string"
+						default="localhost">
+						<description>
+							Defines a list of allowed hosts. Only clients in that
+							list will be accepted by the
+							application. IPs and hostnames are
+							allowed.
+						</description>
+					</parameter>
+				</group>
+				<group name="module">
+					<parameter name="ID" type="int" default="1">
+						<description>
+							Defines the moduleID to intercept messages from. The
+							user must configure this parameter
+							accordingly to the moduleID of
+							the client.
+						</description>
+					</parameter>
+					<parameter name="type" type="int" default="1">
+						<description>
+							Defines the typeID to intercept messages from. The
+							user must configure this parameter
+							accordingly to the typeID of
+							the client.
+						</description>
+					</parameter>
+				</group>
+				<group name="region">
+					<parameter name="tag" type="string" default="mq0">
+						<description>Defines the regionTag that should be used in the
+							origin's comment.
+						</description>
+					</parameter>
+				</group>
+				<group name="enable">
+					<parameter name="XMLArchive" type="boolean" default="true">
+						<description>
+							Enables/disables XML messages storage in sub folder
+							"archive" in the "defaulPath".
+						</description>
+					</parameter>
+					<parameter name="databaseStorage" type="boolean" default="true">
+						<description>
+							Enables/disables generated Origin objects storage in
+							database. The latters are actually
+							sent to the messaging system
+							whom deals with the creation of/association to
+							a proper event and
+							handles the database part.
+						</description>
+					</parameter>
+					<parameter name="eventDeletion" type="boolean" default="false">
+						<description>Enables/disables the possibility to delete events.
+						</description>
+					</parameter>
+				</group>
+				<parameter name="defaultPath" type="string" default="${HOME}/.ipgp/wo2sc3">
+					<description>
+						Defines the folder in which operations will be
+						performed. If XMLArchive parameter
+						is set to "true", this folder
+						will also be used to store messages in sub-folder
+						"archive".
+					</description>
+				</parameter>
+				<parameter name="eventDeletionMethod" type="string"
+					default="hide">
+					<description>
+						Defines the method that should be used in order to
+						remove an event from the database.
+						The user may choose between
+						"hide" or "delete".
+					</description>
+				</parameter>
+			</group>
+		</configuration>
+		<command-line>
+			<group name="Generic">
+				<optionReference>generic#help</optionReference>
+				<optionReference>generic#version</optionReference>
+				<optionReference>generic#config-file</optionReference>
+				<optionReference>generic#plugins</optionReference>
+				<optionReference>generic#daemon</optionReference>
+				<optionReference>generic#auto-shutdown</optionReference>
+				<optionReference>generic#shutdown-master-module</optionReference>
+				<optionReference>generic#shutdown-master-username</optionReference>
+			</group>
+
+			<group name="Verbosity">
+				<optionReference>verbosity#verbosity</optionReference>
+				<optionReference>verbosity#v</optionReference>
+				<optionReference>verbosity#quiet</optionReference>
+				<optionReference>verbosity#component</optionReference>
+				<optionReference>verbosity#syslog</optionReference>
+				<optionReference>verbosity#lockfile</optionReference>
+				<optionReference>verbosity#console</optionReference>
+				<optionReference>verbosity#debug</optionReference>
+				<optionReference>verbosity#log-file</optionReference>
+			</group>
+
+			<group name="Messaging">
+				<optionReference>messaging#user</optionReference>
+				<optionReference>messaging#host</optionReference>
+				<optionReference>messaging#timeout</optionReference>
+				<optionReference>messaging#primary-group</optionReference>
+				<optionReference>messaging#subscribe-group</optionReference>
+				<optionReference>messaging#encoding</optionReference>
+				<optionReference>messaging#start-stop-msg</optionReference>
+			</group>
+
+			<group name="Database">
+				<optionReference>database#db-driver-list</optionReference>
+				<optionReference>database#database</optionReference>
+				<optionReference>database#config-module</optionReference>
+				<optionReference>database#inventory-db</optionReference>
+				<optionReference>database#db-disable</optionReference>
+			</group>
+		</command-line>
+	</module>
+</seiscomp>

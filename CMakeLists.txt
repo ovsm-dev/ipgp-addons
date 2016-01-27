@@ -1,6 +1,7 @@
 SC_BEGIN_PACKAGE(IPGPADDONS)
 
 OPTION(SC_IPGPADDONS_GUI_APPS "Build IPGP graphical user interface (requires Qt4 and OpenGL)" OFF)
+OPTION(SC_IPGPADDONS_WO_APPS "Build IPGP apps to interact with WebObs (wo2sc3)" OFF)
 SET(CPACK_PACKAGE_EXECUTABLES "scaemv;scaemv" "scbev;scbev" "scwev;scwev")
 
 SET(SC3_TRUNK_SRC_DIR ${CMAKE_SOURCE_DIR}/src/trunk)
