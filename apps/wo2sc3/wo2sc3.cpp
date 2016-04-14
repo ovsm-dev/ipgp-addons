@@ -37,10 +37,14 @@
 #include <seiscomp3/datamodel/types.h>
 #include <seiscomp3/datamodel/notifier.h>
 #include <seiscomp3/math/geo.h>
+
+#if SC_API_VERSION < 0x020000
+#include <seiscomp3/processing/parameters.h>
+#include <seiscomp3/datamodel/parameterset.h>
+#else
 #include <seiscomp3/utils/files.h>
 #include <seiscomp3/utils/keyvalues.h>
-//#include <seiscomp3/processing/parameters.h>
-//#include <seiscomp3/datamodel/parameterset.h>
+#endif
 
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
@@ -865,10 +869,13 @@ bool WebobsToSeisComP3::createOrigin(xmlDoc* doc, xmlXPathObject* object) {
 						continue;
 					}
 
-//					Processing::Parameters params;
-//					params.readFrom(ps);
+#if SC_API_VERSION < 0x020000
+					Processing::Parameters params;
+					params.readFrom(ps);
+#else
 					Util::KeyValues params;
 					params.init(ps);
+#endif
 
 					std::string loc, cha;
 

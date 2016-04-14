@@ -36,7 +36,13 @@
 #include <seiscomp3/math/filter/chainfilter.h>
 #include <seiscomp3/math/filter/abs.h>
 #include <seiscomp3/math/filter/const.h>
+
+#if SC_API_VERSION < 0x050001
 #include <seiscomp3/math/filter/rca.h>
+#else
+#include <seiscomp3/math/filter/average.h>
+#endif
+
 #include <seiscomp3/math/filter/op2filter.h>
 #include <seiscomp3/math/filter/stalta.h>
 #include <seiscomp3/math/filter/seismometers.h>
