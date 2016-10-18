@@ -92,6 +92,37 @@
 				</parameter>
 			</group>
 			<group name="bev">
+				<parameter name="showNotExistingOrigins" type="boolean"
+					default="false">
+					<description>
+						Sets whether or not origins flagged with "NOT
+						EXISTING" have type to be seen in the
+						list.
+					</description>
+				</parameter>
+				<parameter name="showNotLocatableOrigin" type="boolean"
+					default="false">
+					<description>
+						Sets whether or not origins flagged with "NOT
+						LOCATABLE" type have to be seen in the
+						list.
+					</description>
+				</parameter>
+				<parameter name="showOriginsWithNoType" type="boolean"
+					default="false">
+					<description>
+						Sets whether or not origins without a type have to be
+						seen in the list.
+					</description>
+				</parameter>
+				<parameter name="showOutOfNetworkInterestsOrigins" type="boolean"
+					default="true">
+					<description>
+						Sets whether or not origins flagged with "OUTSIDE OF
+						NETWORK INTEREST" type have to
+						be seen in the list.
+					</description>
+				</parameter>
 				<group name="export">
 					<group name="quakeml">
 						<description>
@@ -120,38 +151,6 @@
 					<parameter name="author" type="string" default="REV_OVSM">
 						<description>This is the authorID who will be printed on GSE and
 							IMS bulletins.
-						</description>
-					</parameter>
-
-					<parameter name="showNotExistingOrigins" type="boolean"
-						default="false">
-						<description>
-							Sets whether or not origins flagged with "NOT
-							EXISTING" have type to be seen in the
-							list.
-						</description>
-					</parameter>
-					<parameter name="showNotLocatableOrigin" type="boolean"
-						default="false">
-						<description>
-							Sets whether or not origins flagged with "NOT
-							LOCATABLE" type have to be seen in the
-							list.
-						</description>
-					</parameter>
-					<parameter name="showOriginsWithNoType" type="boolean"
-						default="false">
-						<description>
-							Sets whether or not origins without a type have to be
-							seen in the list.
-						</description>
-					</parameter>
-					<parameter name="showOutOfNetworkInterestsOrigins" type="boolean"
-						default="true">
-						<description>
-							Sets whether or not origins flagged with "OUTSIDE OF
-							NETWORK INTEREST" type have to
-							be seen in the list.
 						</description>
 					</parameter>
 				</group>
