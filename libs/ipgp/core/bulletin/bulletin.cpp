@@ -31,6 +31,10 @@
 #include <seiscomp3/io/archive/xmlarchive.h>
 #include <seiscomp3/math/geo.h>
 
+#if SC_API_VERSION >= SC_API_VERSION_CHECK(10, 0, 0)
+#include <seiscomp3/core/strings.h>
+#endif
+
 #include <boost/algorithm/string.hpp>
 
 using namespace Seiscomp;

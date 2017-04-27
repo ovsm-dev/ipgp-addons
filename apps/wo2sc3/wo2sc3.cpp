@@ -38,7 +38,7 @@
 #include <seiscomp3/datamodel/notifier.h>
 #include <seiscomp3/math/geo.h>
 
-#if SC_API_VERSION < 0x020000
+#if SC_API_VERSION < SC_API_VERSION_CHECK(2, 0, 0)
 #include <seiscomp3/processing/parameters.h>
 #include <seiscomp3/datamodel/parameterset.h>
 #else
@@ -869,7 +869,7 @@ bool WebobsToSeisComP3::createOrigin(xmlDoc* doc, xmlXPathObject* object) {
 						continue;
 					}
 
-#if SC_API_VERSION < 0x020000
+#if SC_API_VERSION < SC_API_VERSION_CHECK(2, 0, 0)
 					Processing::Parameters params;
 					params.readFrom(ps);
 #else

@@ -91,13 +91,17 @@ bool SC_IPGP_CORE_API stringType(std::string& str, int type);
  */
 std::string SC_IPGP_CORE_API blankReplace(std::string& str, std::string& str1);
 
+
 /**
  * @brief Modern sprintf...
  * @param fmt the output format e.g. "%02.f"
  * @param ...
  * @return the std::string of requested format
  */
+//#if SC_API_VERSION < SC_API_VERSION_CHECK(10, 0, 0)
+#if SC_API_VERSION < 0x0A0000
 std::string SC_IPGP_CORE_API stringify(const char* fmt, ...);
+#endif
 
 
 /**

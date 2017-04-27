@@ -26,7 +26,7 @@
 #include <seiscomp3/core/strings.h>
 #include <ipgp/core/string/string.h>
 #include <iostream>
-
+#include <seiscomp3/datamodel/version.h>
 
 using namespace Seiscomp;
 using namespace Seiscomp::Core;
@@ -493,7 +493,11 @@ const std::string doubleToRoman(const double m) {
 const std::string getStringPosition(const double& value,
                                     const enum GeographicCoordinate pos) {
 
+#if SC_API_VERSION < SC_API_VERSION_CHECK(10, 0, 0)
 	std::string str = String::stringify("%.4f", fabs(value));
+#else
+	std::string str = stringify("%.4f", fabs(value));
+#endif
 
 	switch ( pos ) {
 

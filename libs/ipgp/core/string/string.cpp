@@ -172,6 +172,8 @@ std::string blankReplace(std::string& str, std::string& str1) {
 
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//#if SC_API_VERSION < SC_API_VERSION_CHECK(10, 0, 0)
+#if SC_API_VERSION < 0x0A0000
 std::string stringify(const char* fmt, ...) {
 
 	int size = 512;
@@ -192,12 +194,11 @@ std::string stringify(const char* fmt, ...) {
 
 	return ret;
 }
+#endif
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
 
-
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 template<class T> T fromString(std::string s) {
 
 	T result;
