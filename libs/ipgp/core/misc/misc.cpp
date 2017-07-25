@@ -22,9 +22,7 @@
 #include <seiscomp3/core/strings.h>
 #include <stdlib.h>
 #include <iostream>
-#ifdef linux
 #include <wait.h>
-#endif
 
 using namespace Seiscomp;
 using namespace Seiscomp::Core;

@@ -372,7 +372,7 @@ bool OriginRecordViewer::addStream(const std::string& networkCode,
 bool OriginRecordViewer::openStream() {
 	if ( _recordStream ) return false;
 	_recordStream = IO::RecordStream::Open(_recordStreamUrl.c_str());
-	return _recordStream;
+	return _recordStream.get();
 }
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 

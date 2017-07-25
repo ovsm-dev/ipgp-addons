@@ -1454,7 +1454,7 @@ bool ParticleMotionWidget::openStream() {
 
 	_recordStream = IO::RecordStream::Open(_recordStreamUrl.c_str());
 
-	return _recordStream;
+	return _recordStream.get();
 }
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
