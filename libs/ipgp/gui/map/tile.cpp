@@ -96,10 +96,13 @@ const int& Tile::z() const {
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 const QString Tile::path() const {
 
+	const QString noext = _path + suffix();
 	const QString png = _path + suffix() + ".png";
 	const QString jpg = _path + suffix() + ".jpg";
 
-	if ( QFile::exists(png) )
+	if ( QFile::exists(noext) )
+		return noext;
+	else if ( QFile::exists(png) )
 		return png;
 	else
 		return jpg;
