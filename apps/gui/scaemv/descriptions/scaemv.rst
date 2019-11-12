@@ -634,7 +634,8 @@ should specify the way they are stored.
    # - %3 = line (0- 2^zoom-1 in Mercator projection)
    # Each parameter can be used more than once.
    # @note It is not mandatory to specify the extension of the file, the
-   #       algorithm will try and fetch PNG and JPG files
+   #       algorithm will try and fetch PNG and JPG files (with and without 
+   #       extension).
    map.tilePattern = "%1/%2/%3"
 
 More information about tiles 
